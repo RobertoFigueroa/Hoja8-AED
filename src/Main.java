@@ -1,5 +1,6 @@
 import java.io.*;
 import java.sql.SQLOutput;
+import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class Main {
@@ -9,6 +10,8 @@ public class Main {
         VectorHeap<Patient> hospitalTurns = new VectorHeap<>();
         Scanner input = new Scanner(System.in);
         int opc = 1;
+        Window w1 = new Window();
+        w1.setVisible(true);
 
 
 
@@ -34,7 +37,7 @@ public class Main {
         String[] patientsData =  texto.split(",");
         for(int i=0;i<patientsData.length;i+=3){
             hospitalTurns.add(new Patient(patientsData[i],patientsData[i+1],patientsData[i+2]));
-        }
+        }/*
 
         do{
             if(!hospitalTurns.isEmpty()){
@@ -54,11 +57,24 @@ public class Main {
                 System.out.println("No hay pacientes en la sala");
                 opc = 0;
             }
-        }while(opc == 1);
+        }while(opc == 1); */
+
+      /*  PriorityQueue<Patient> fila = new PriorityQueue<>();
+
+        Patient p1 = new Patient("carlos","dolor","C");
+        Patient p2 = new Patient("carlos","dolor","A");
+        Patient p3 = new Patient("carlos","dolor","B");
+        Patient p4 = new Patient("carlos","dolor","E");
+        fila.add(p1);
+        fila.add(p2);
+        fila.add(p3);
+        fila.add(p4);
 
 
+        System.out.println(fila.remove());
+        System.out.println(fila.remove());
 
-
+*/
     }
 
 }
