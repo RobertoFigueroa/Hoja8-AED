@@ -1,17 +1,21 @@
 import javax.swing.*;
 import java.awt.*;
 
+
+/**
+ * This class is for
+ */
 public class Window extends JFrame {
 
     public JPanel panel;
 
-   public Window(){
+    public Window(){
        setSize(500,500);
        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
        setLocationRelativeTo(null);
        setTitle("Hoja de trabajo 8");
        starComponents();
-   }
+    }
 
     private void starComponents(){
        startPanel();

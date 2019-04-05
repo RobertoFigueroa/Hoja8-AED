@@ -1,25 +1,26 @@
 import java.util.Vector;
 
+/**
+ * @param <E> This class is a vector that implements the priorityQueue
+ */
 public  class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
 
     protected Vector<E> data; // the data, kept in heap order
     private int size;
+
+    /**
+     * The VectorHeap constructor
+     */
     public VectorHeap()
     // post: constructs a new priority queue
     {
         data = new Vector<E>();
     }
 
-    public VectorHeap(Vector<E> v)
-    // post: constructs a new priority queue from an unordered vector
-    {
-        int i;
-        data = new Vector<E>(v.size()); // we know ultimate size
-        for (i = 0; i < v.size(); i++) { // add elements to heap
-            add(v.get(i));
-        }
-    }
-
+    /**
+     * @param i Receives an integer
+     * @return Returns the integer minus 1 and divided by 2, wich is the parent
+     */
     protected static int parent(int i)
     // pre: 0 <= i < size
     // post: returns parent of node at location i
@@ -27,6 +28,10 @@ public  class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
         return (i - 1) / 2;
     }
 
+    /**
+     * @param i Receives an integer
+     * @return Returns the integer times 2 and plus 1, wich is the left
+     */
     protected static int left(int i)
     // pre: 0 <= i < size
     // post: returns index of left child of node at location i
@@ -34,13 +39,20 @@ public  class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
         return 2 * i + 1;
     }
 
+    /**
+     * @param i Receives an integer
+     * @return Returns the integer times 2 and plus 2, wich is the right
+     */
     protected static int right(int i)
     // pre: 0 <= i < size
     // post: returns index of right child of node at location i
     {
-        return (2 * i + 1) + 1;
+        return 2 * i + 2;
     }
 
+    /**
+     * @param leaf this method searches the important nodes and make them the root
+     */
     protected void percolateUp(int leaf)
     // pre: 0 <= leaf < size
     // post: moves node at index leaf up to appropriate position
@@ -56,6 +68,11 @@ public  class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
         data.set(leaf, value);
     }
 
+
+    /**
+     * @param value Receives a type E value
+     *Takes de value and ads it to the vector
+     */
     public void add(E value)
     // pre: value is non-null comparable
     // post: value is added to priority queue
@@ -65,6 +82,10 @@ public  class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
         size ++;
     }
 
+    /**
+     * @param root Takes the root from the vectorheap
+     * Moves the root node down to make it a subtree
+     */
     protected void pushDownRoot(int root)
     // pre: 0 <= root < size
     // post: moves node at index root down
@@ -96,6 +117,10 @@ public  class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E> {
         }
     }
 
+    /**
+     * @return Returns the minimum value
+     * takes the minimum value and returns it
+     */
     public E remove()
     // pre: !isEmpty()
     // post: returns and removes minimum value from queue
