@@ -17,21 +17,12 @@ public class Patient implements Comparable<Patient> {
     private String priority;
 
 
-    /**
-     * The constructor
-     * @param name
-     * @param disease
-     * @param priority
-     */
     public Patient(String name, String disease, String priority){
         this.name = name;
         this.disease = disease;
         this.priority = priority;
     }
 
-    /**
-     * @return return this priority
-     */
     public String getPriority() {
         return priority;
     }
@@ -42,10 +33,11 @@ public class Patient implements Comparable<Patient> {
 
     }
 
-    /**
-     * @return priority
-     */
     public String toString(){
         return priority;
+    }
+
+    public String getInfo(){
+        return name + " " + disease;
     }
 }
