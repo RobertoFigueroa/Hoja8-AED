@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        //instancias útiles:
+        //instancias utiles:
         Scanner input = new Scanner(System.in);
         int opc = 1;
         System.out.println("Bienvenido al gestor de pacientes del centro medico");
